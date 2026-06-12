@@ -7,6 +7,8 @@ const jwt = require('jsonwebtoken');
 const app = express();
 const PORT = 5000;
 
+require("node:dns/promises").setServers(["1.1.1.1", "8.8.8.8"]);
+
 async function protect(req, res, next) {
     // Get token from Header: "Bearer "
     const token = req.headers.authorization?.split(" ")[1];
